@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Deployment</title>
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ccc;
+        }
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #777;
+        }
+        .algorithm-container {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .algorithm-heading {
+            color: #ccc;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .prediction {
+            color: #ccc;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Machine Learning Model Predictions</h1>
+
+    <div class="button-container">
+        <form method="POST">
+            <button type="submit" name="decision_tree_submit">Predict using Decision Tree</button>
+            <button type="submit" name="random_forest_submit">Predict using Random Forest</button>
+            <button type="submit" name="svm_submit">Predict using SVM</button>
+        </form>
+    </div>
+
+    {% if prediction is not none %}
+    <div class="algorithm-container">
+        <h2 class="algorithm-heading">Decision Tree Algorithm</h2>
+        <p class="prediction">{{ prediction }}</p>
+    </div>
+    {% endif %}
+
+    {% if predictionR is not none %}
+    <div class="algorithm-container">
+        <h2 class="algorithm-heading">Random Forest Algorithm</h2>
+        <p class="prediction">{{ predictionR }}</p>
+    </div>
+    {% endif %}
+
+    {% if predictionS is not none %}
+    <div class="algorithm-container">
+        <h2 class="algorithm-heading">Support Vector Machine (SVM) Algorithm</h2>
+        <p class="prediction">{{ predictionS }}</p>
+    </div>
+    {% endif %}
+
+    
+
+</html>
